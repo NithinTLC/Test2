@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 4px solid black;
+            padding: 8px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            padding: 6px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, Admin</h1>
+
+    <h2>Employee List</h2>
+
+    <form action="/search" method="POST">
+        <input type="text" name="search" placeholder="Search by First Name">
+        <button type="submit">Search</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Experience</th>
+            <th>Salary</th>
+            <th>Skills</th>
+            <th>Qualifications</th>
+            <th>Actions</th>
+        </tr>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee[0] }}</td>
+            <td>{{ employee[1] }}</td>
+            <td>{{ employee[2] }}</td>
+            <td>{{ employee[3] }}</td>
+            <td>{{ employee[4] }}</td>
+            <td>{{ employee[5] }}</td>
+            <td>{{ employee[6] }}</td>
+            <td>{{ employee[7] }}</td>
+            <td>
+                <a href="/edit/{{ employee[0] }}">Edit</a>
+                <a href="/delete/{{ employee[0] }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Add Employee</h2>
+
+    <form action="/add" method="POST">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required><br><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required><br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+        <label for="experience">Experience:</label>
+        <input type="number" id="experience" name="experience" required><br><br>
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" name="salary" required><br><br>
+        <label for="skills">Skills:</label>
+        <input type="text" id="skills" name="skills" required><br><br>
+        <label for="qualifications">Qualifications:</label>
+        <input type="text" id="qualifications" name="qualifications" required><br><br>
+        <input type="submit" value="Add Employee">
+        <a href="{{ url_for('go_back') }}" class="btn btn-primary">Go Back</a>
+        <p> <a href="/refreshdb">Refresh </a></p>
+
+    </form>
+
+    <a href="/logout">Signout</a>
+</body>
+</html>

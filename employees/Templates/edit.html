@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Employee</title>
+</head>
+<body>
+    <h2>Edit Employee</h2>
+    <form action="{{ url_for('edit', employee_id=employee[0]) }}" method="POST">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" value="{{ employee[1] }}" required><br><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" value="{{ employee[2] }}" required><br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" value="{{ employee[3] }}" required><br><br>
+        <label for="experience">Experience:</label>
+        <input type="number" id="experience" name="experience" value="{{ employee[4] }}" required><br><br>
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" name="salary" value="{{ employee[5] }}" required><br><br>
+        <label for="skills">Skills:</label>
+        <input type="text" id="skills" name="skills" value="{{ employee[6] }}" required><br><br>
+        <label for="qualifications">Qualifications:</label>
+        <input type="text" id="qualifications" name="qualifications" value="{{ employee[7] }}" required><br><br>
+        <input type="submit" value="Update Employee">
+        <a href="{{ url_for('go_back') }}" class="btn btn-primary">Go Back</a>
+
+    </form>
+</body>
+</html>
+

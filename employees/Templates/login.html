@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Sign in</title>
+    <style>
+    form {
+    height: 520px;
+    width: 400px;
+    background-color: rgba(3, 125, 241, 0.4);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+    }
+    form *{
+    font-family: 'Poppins',sans-serif;
+    color: black;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+label {
+    display: block;
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 500;}
+    input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(223, 125, 241, 0.8);
+    border-radius: 4px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+
+   </style>
+</head>
+<body>
+
+    <form action="/login" method="POST">
+        <h1>User Sign in</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Sign in">
+        <p>Don't have an account? <a href="/newacc">Sign up</a></p>
+    </form>
+
+</body>
+</html>
