@@ -4,7 +4,7 @@ import mysql.connector
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 db = mysql.connector.connect(
-    host='localhost',
+    host='mysql',
     user='root',
     password='Nithin#7786',
     database='employee_management'
